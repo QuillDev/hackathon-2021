@@ -33,11 +33,13 @@ class App extends Component {
               </p>
             </Jumbotron>
             <div style={{paddingTop: "10px"}}/>
-            <Login/>
 
             <p>{this.state.apiResponse}</p>
+            <div style={{borderStyle:"solid"}}><Login/></div>
           </header>
         </div>
+
+
     );
   }
 }

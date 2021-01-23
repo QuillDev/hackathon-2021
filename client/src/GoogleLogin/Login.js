@@ -21,10 +21,7 @@ function Login(){
         <div>
             <GoogleLogin
                 clientId={window.env.CLIENT_ID}
-                render={renderProps => (
-                    <Button variant={"dark"} onClick={renderProps.onClick} disabled={renderProps.disabled}>Observe with Google</Button>
-                )}
-                buttonText="Login"
+                buttonText="Observe with Google"
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 cookiePolicy={'single_host_origin'}
