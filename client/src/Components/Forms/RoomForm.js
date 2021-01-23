@@ -35,7 +35,7 @@ class RoomForm extends Component {
                         <Form.Control style={{textAlign:"center", height:"50px", fontSize:"30px"}} name="chatname" placeholder="Study Room" />
                     </Form.Group>
                     <Button variant="outline-light" type="button">
-                        Submit
+                        Create
                     </Button>
                 </Form>
 
