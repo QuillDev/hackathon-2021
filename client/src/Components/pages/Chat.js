@@ -33,7 +33,6 @@ class Chat extends Component{
                         <img src={avatar} style={{borderRadius:"50%", width:"85px", height:"85px"}}></img>
                         <img src={avatar} style={{borderRadius:"50%", width:"85px", height:"85px"}}></img>
                     </div>
-
                 </header>
             </div>
         );
