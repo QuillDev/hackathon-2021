@@ -1,5 +1,5 @@
 import {Jumbotron} from "react-bootstrap";
-import logo from "../../logo.png";
+import logo from "../../logo.gif";
 import Login from "../GoogleLogin/Login";
 import {Component} from "react";
 

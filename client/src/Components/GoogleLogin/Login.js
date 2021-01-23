@@ -21,14 +21,10 @@ function Login(){
         <div>
             <GoogleLogin
                 clientId={window.env.CLIENT_ID}
-<<<<<<< HEAD:client/src/Components/GoogleLogin/Login.js
                 render={renderProps => (
                     <Button onClick={renderProps.onClick} disabled={renderProps.disabled}>This is my custom Google button</Button>
                 )}
-                buttonText="Login"
-=======
                 buttonText="Observe with Google"
->>>>>>> 23ca7fea73e21a858fda0462c8e0eee490d62e9a:client/src/GoogleLogin/Login.js
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 cookiePolicy={'single_host_origin'}
