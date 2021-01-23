@@ -32,8 +32,10 @@ class App extends Component {
                 A comprehensive solution to online tutoring.
               </p>
             </Jumbotron>
-            <div style={{paddingTop:"10px"}}></div>
+            <div style={{paddingTop: "10px"}}/>
             <Login/>
+
+            <p>{this.state.apiResponse}</p>
           </header>
         </div>
     );
