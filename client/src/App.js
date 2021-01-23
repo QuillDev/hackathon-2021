@@ -1,4 +1,4 @@
-import logo from './logo.png';
+import logo from './logo.gif';
 import './App.css';
 import Login from "./GoogleLogin/Login";
 import Logout from "./GoogleLogin/Logout";
@@ -27,7 +27,7 @@ class App extends Component {
           <header className="App-header">
             <Jumbotron style={{backgroundColor: "#332927", borderRadius:"40px"}}>
               <h1>Observe</h1>
-              <img src={logo} alt="Logo" width={200} height={200}/>
+              <img src={logo} alt="Logo" width={300} height={300}/>
               <p style={{paddingLeft:"20px", paddingRight:"20px"}}>
                 A comprehensive solution to online tutoring.
               </p>
