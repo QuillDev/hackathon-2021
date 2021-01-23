@@ -1,7 +1,6 @@
 import logo from './logo.png';
 import './App.css';
 import Login from "./GoogleLogin/Login";
-import Logout from "./GoogleLogin/Logout";
 import {Jumbotron} from "react-bootstrap";
 import {Component} from "react";
 

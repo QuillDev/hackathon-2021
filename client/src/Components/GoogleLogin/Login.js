@@ -22,7 +22,7 @@ function Login(){
             <GoogleLogin
                 clientId={window.env.CLIENT_ID}
                 render={renderProps => (
-                    <Button variant={"dark"} onClick={renderProps.onClick} disabled={renderProps.disabled}>Observe with Google</Button>
+                    <Button onClick={renderProps.onClick} disabled={renderProps.disabled}>This is my custom Google button</Button>
                 )}
                 buttonText="Login"
                 onSuccess={onSuccess}
