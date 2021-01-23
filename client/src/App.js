@@ -26,21 +26,15 @@ class App extends Component {
     return (
         <div className="App">
           <header className="App-header">
-
-            <p>Michael's Chat Room</p>
-
-            <Jumbotron>
+            <Jumbotron style={{backgroundColor: "#363636", borderRadius:"25px"}}>
               <h1>Observe</h1>
-              <img src={logo} alt="Logo" />
-              <p>
+              <img src={logo} alt="Logo" width={200} height={200}/>
+              <p style={{paddingLeft:"15px", paddingRight:"15px"}}>
                 A comprehensive solution to online tutoring.
               </p>
             </Jumbotron>
-            {/* Login and Logout Buttons */}
+            <div style={{paddingTop:"10px"}}></div>
             <Login/>
-            <Logout/>
-
-            <p>{this.state.apiResponse}</p>
           </header>
         </div>
     );
