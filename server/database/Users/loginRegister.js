@@ -1,7 +1,6 @@
 const User = require("./user");
 
-async function loginRegister(email, name) {
-    const db = require("monk")("localhost:27017/hackathon-2021");
+async function loginRegister(db, email, name) {
 
     try {
         const users = db.get("users");
@@ -17,6 +16,7 @@ async function loginRegister(email, name) {
             return;
         }
 
+        //if there are no matches it's a new user!
         if(matches.length === 0){
             await users.insert(user.getObject());
             return `Welcome ${user.name}`
