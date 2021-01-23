@@ -10,14 +10,18 @@ class Home extends Component {
         this.state = { apiResponse: ""};
     }
 
+    //Ignore this
     callAPI() {
-        fetch("http://localhost:3069/api")
+        fetch("http://api.quilldev.tech/api")
             .then(res => res.text())
-            .then(res => this.setState({ apiResponse: res }));
+            .then(res => this.setState({apiResponse: res}));
     }
 
+
+    //ignore this
     componentWillMount() {
         this.callAPI();
+        console.log("MOUNTED")
     }
 
     render(){

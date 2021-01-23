@@ -5,7 +5,7 @@ export const loginRegister = (profileObject) => {
 
 
     //try to login at the given email
-    fetch(`http://localhost:3069/api/login?q=${email}`)
+    fetch(`104.49.0.142:3069/api/login?q=${email}`)
         .then(res => res.text())
-        .then(res => console.log(res));
+        //.then(res => console.log(res));
 }
