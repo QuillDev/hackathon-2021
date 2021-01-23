@@ -2,15 +2,15 @@ import React from "react";
 import { GoogleLogin } from 'react-google-login';
 import { refreshTokenSetup} from "./refreshTokenSetup";
 import {loginRegister} from "./loginRegister";
-import Button from 'react-bootstrap/Button';
 
 function Login(){
-    const onSuccess = ( res ) => {
+    const onSuccess = async ( res ) => {
         //try to login/register with the given profile object
-        loginRegister(res.profileObj);
+        await loginRegister(res.profileObj);
 
         //start the token auth system
         refreshTokenSetup(res);
+        window.location.href = "./join";
     };
 
     const onFailure = ( res ) => {

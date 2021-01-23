@@ -1,5 +1,6 @@
 import {Component} from "react";
 import {Form} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 class Join extends Component{
     render(){
@@ -16,6 +17,7 @@ class Join extends Component{
                             </Form>
                         </div>
                     </div>
+                    <Button onClick={() => window.location.href = "../create-room"}>Click to Create a new room! </Button>
                 </header>
             </div>
         )

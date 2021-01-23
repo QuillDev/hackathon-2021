@@ -1,7 +1,7 @@
 import {Jumbotron} from "react-bootstrap";
 import logo from "../../logo.gif";
 import Login from "../GoogleLogin/Login";
-import {Component} from "react";
+import { Component } from "react";
 
 
 class Home extends Component {
@@ -12,16 +12,18 @@ class Home extends Component {
 
     //Ignore this
     callAPI() {
-        fetch("http://api.quilldev.tech/api")
-            .then(res => res.text())
-            .then(res => this.setState({apiResponse: res}));
+        try {
+            fetch("https://api.quilldev.tech/api")
+                .then(res => res.text())
+                .then(res => this.setState({apiResponse: res}));
+    } catch (error){
+            console.log(error);
+        }
     }
-
 
     //ignore this
     componentWillMount() {
         this.callAPI();
-        console.log("MOUNTED")
     }
 
     render(){

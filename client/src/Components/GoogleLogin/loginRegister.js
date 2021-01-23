@@ -1,11 +1,7 @@
-export const loginRegister = (profileObject) => {
-    const { email } = profileObject;
-
-    console.log(`Trying to login with email: ${email}`);
-
+export const loginRegister = async (profileObject) => {
+    const { email, givenName } = profileObject;
 
     //try to login at the given email
-    fetch(`104.49.0.142:3069/api/login?q=${email}`)
-        .then(res => res.text())
-        //.then(res => console.log(res));
+    return await fetch(`https://api.quilldev.tech/api/login?email=${email}&name=${givenName}`)
+        .then(res => res.text());
 }

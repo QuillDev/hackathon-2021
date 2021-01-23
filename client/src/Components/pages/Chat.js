@@ -1,6 +1,4 @@
 import {Component} from "react";
-import {Link} from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import avatar from "../../avatar.jpg";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
 
@@ -26,12 +24,12 @@ class Chat extends Component{
                             delay={{ show: 250, hide: 400 }}
                             overlay={renderTooltip}
                         >
-                            <img src={avatar} style={{borderRadius:"50%", width:"85px", height:"85px"}}></img>
+                            <img src={avatar} style={{borderRadius: "50%", width: "85px", height: "85px"}}/>
                         </OverlayTrigger>
-                        <img src={avatar} style={{borderRadius:"50%", width:"85px", height:"85px"}}></img>
-                        <img src={avatar} style={{borderRadius:"50%", width:"85px", height:"85px"}}></img>
-                        <img src={avatar} style={{borderRadius:"50%", width:"85px", height:"85px"}}></img>
-                        <img src={avatar} style={{borderRadius:"50%", width:"85px", height:"85px"}}></img>
+                        <img src={avatar} style={{borderRadius: "50%", width: "85px", height: "85px"}}/>
+                        <img src={avatar} style={{borderRadius: "50%", width: "85px", height: "85px"}}/>
+                        <img src={avatar} style={{borderRadius: "50%", width: "85px", height: "85px"}}/>
+                        <img src={avatar} style={{borderRadius: "50%", width: "85px", height: "85px"}}/>
                     </div>
                 </header>
             </div>
