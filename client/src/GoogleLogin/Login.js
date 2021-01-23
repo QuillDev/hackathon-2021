@@ -1,10 +1,12 @@
 import React from "react";
 import { GoogleLogin } from 'react-google-login';
 import { refreshTokenSetup} from "./refreshTokenSetup";
+import {loginRegister} from "./loginRegister";
 
 function Login(){
     const onSuccess = ( res ) => {
-        console.log(`[Login Success] currentUser: ${res.profileObj}`);
+        //try to login/register with the given profile object
+        loginRegister(res.profileObj);
 
         //start the token auth system
         refreshTokenSetup(res);
