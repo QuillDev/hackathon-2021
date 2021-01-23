@@ -1,26 +1,33 @@
 const User = require("./user");
 
+async function loginRegister(email, name) {
+    const db = require("monk")("localhost:27017/hackathon-2021");
 
-const loginRegister = async (email) => {
-    const db = require("localhost")("localhost:27017/hackathon-2021");
+    try {
+        const users = db.get("users");
 
-    const users = db.get("users");
+        //create a user
+        const user = new User(email, name);
 
-    //create a user
-    const user = new User(email);
+        const matches = await users.find({email: email}, '-bigdata');
 
-    const matches = await users.find({email: email}, '-bigdata');
+        //if matches is null return
+        if(matches == null){
+            db.close();
+            return;
+        }
 
-    //if matches is null return
-    if(matches == null){
-        db.close();
-        return;
+        if(matches.length === 0){
+            await users.insert(user.getObject());
+            return `Welcome ${user.name}`
+        }
+        else{
+            return `Welcome back ${user.name}`;
+        }
+
+    }catch (e){
+        console.log(e);
     }
-
-    console.log(matches);
-};
-
-function exit(){
 
 }
 module.exports = loginRegister;
