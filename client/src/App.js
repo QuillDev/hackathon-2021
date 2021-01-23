@@ -5,7 +5,6 @@ import Logout from "./GoogleLogin/Logout";
 import {Jumbotron} from "react-bootstrap";
 import {Component} from "react";
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,10 +25,10 @@ class App extends Component {
     return (
         <div className="App">
           <header className="App-header">
-            <Jumbotron style={{backgroundColor: "#363636", borderRadius:"25px"}}>
+            <Jumbotron style={{backgroundColor: "#332927", borderRadius:"40px"}}>
               <h1>Observe</h1>
               <img src={logo} alt="Logo" width={200} height={200}/>
-              <p style={{paddingLeft:"15px", paddingRight:"15px"}}>
+              <p style={{paddingLeft:"20px", paddingRight:"20px"}}>
                 A comprehensive solution to online tutoring.
               </p>
             </Jumbotron>
