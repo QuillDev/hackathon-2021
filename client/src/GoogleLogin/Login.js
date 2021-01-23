@@ -1,6 +1,7 @@
 import React from "react";
 import { GoogleLogin } from 'react-google-login';
 import { refreshTokenSetup} from "./refreshTokenSetup";
+import Button from 'react-bootstrap/Button';
 
 function Login(){
     const onSuccess = ( res ) => {
@@ -18,6 +19,9 @@ function Login(){
         <div>
             <GoogleLogin
                 clientId={window.env.CLIENT_ID}
+                render={renderProps => (
+                    <Button variant={"dark"} onClick={renderProps.onClick} disabled={renderProps.disabled}>Observe with Google</Button>
+                )}
                 buttonText="Login"
                 onSuccess={onSuccess}
                 onFailure={onFailure}
