@@ -2,7 +2,8 @@ html, body{
     height: 100%;
     color: white;
     overflow: auto;
-    background-color: #1a1919;
+    background-color: #241d1b;
+    font-family: Comfortaa;
 }
 
 .max-height{
@@ -24,15 +25,23 @@ html, body{
     color: white;
 }
 
+.alignText {
+    text-align: center;
+}
+
 #center-column {
-    background-color: #232222;
+    background-color: #241d1b;
     border-style: solid;
-    border-width: .3em;
+    border-top-width: .3em;
+    text-align: center;
+    text-justify: center;
 }
 .side-column {
-    background-color: #1a1919;
+    background-color: #241d1b;
     border-style: solid;
-    border-width: .3em;
+    border-top-width: .3em;
+    text-align: center;
+    text-justify: center;
 }
 
 #serverList img {
