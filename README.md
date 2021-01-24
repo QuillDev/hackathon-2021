@@ -10,8 +10,8 @@
 - [x] Add classrooms to people (favorites?)
 - [x] Dashboard
 - [x] Persistent chat
-- [ ] Add friends
-- [ ] Add friend from chat
+- [x] Add friends
+- [ ] Add friends from chat
 - [ ] See which friends are online
 - [ ] Send images in chat
 - [ ] PM'S
