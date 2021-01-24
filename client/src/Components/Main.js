@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Chat from "./pages/Chat";
 import Join from "./pages/Join";
 import App from "./App";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Main = () => {
     return (

@@ -12,7 +12,7 @@ class Chat extends Component{
         };
         this.roomCode = null;
         this.icon = localStorage.getItem("icon");
-        this.socket = socketIOClient("https://api.quilldev.tech")
+        this.socket = socketIOClient("https://api.quilldev.tech");
 
         //Log the message
         this.socket.on("chat message", (msg, usr, icon, room) => {
@@ -116,10 +116,13 @@ class Chat extends Component{
                     </div>
                     <div id="messages">
                     </div>
-                    <form onSubmit={(event) => this.sendMessage(event)} id="form" action="">
-                        <input autoComplete="off" name="chatBox"/>
-                        <button>Send</button>
-                    </form>
+                    <div style={{textAlign: "center"}}>
+                        <form onSubmit={(event) => this.sendMessage(event)} id="form" action="">
+                            <input autoComplete="off" name="chatBox"/>
+                            <button>Send</button>
+                        </form>
+                    </div>
+
                 </header>
             </div>
         );

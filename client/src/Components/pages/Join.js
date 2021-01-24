@@ -1,20 +1,23 @@
-import {Component} from "react";
-import {Form} from "react-bootstrap";
+import { Component } from "react";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import "./join.css";
 
-class Join extends Component{
-
+class Join extends Component {
     constructor(props) {
         super(props);
         this.processing = false;
-        this.state = {chatStatus: ""};
+        this.state = { chatStatus: "" };
     }
 
-    async submitForm(e){
+    joinRoom(string){
+        window.location.href = `../chat?roomCode=${string}`;
+    }
+    async submitForm(e) {
         e.preventDefault();
 
         //if we're already processing a room, don't start on a new one (prevents spam)
-        if(this.working){
+        if (this.working) {
             return;
         }
 
@@ -28,66 +31,114 @@ class Join extends Component{
         let code = data.get("roomCode");
 
         //if the code isn't the right length return
-        if(code.length !== 8){
-            this.setState({chatStatus: "Invalid room code, must be 8 characters!"});
+        if (code.length !== 8) {
+            this.setState({ chatStatus: "Invalid room code, must be 8 characters!" });
             this.working = false;
             return;
         }
 
         //Say that we're trying to create a chatroom
-        this.setState({chatStatus: `Creating Chatroom "${code}"`});
+        this.setState({ chatStatus: `Creating Chatroom "${code}"` });
 
         //make a create room request to the api
-        let roomData = await fetch(`https://api.quilldev.tech/api/join-room?id=${code}`)
-            .then( async (res) => {
-
+        let roomData = await fetch(
+            `https://api.quilldev.tech/api/join-room?id=${code}`
+        )
+            .then(async (res) => {
                 //if we fail to create a room, let us know
-                if(res.status !== 200){
+                if (res.status !== 200) {
                     return new Error(`Couldn't create room Error: [${res.status}]`);
                 }
 
                 return await res.json();
-            }).catch();
+            })
+            .catch();
 
-        if(roomData === null){
-            this.setState({chatStatus: `Room does not exist!`});
-        }
-        else if(roomData instanceof Error){
-            this.setState({chatStatus: `Error getting room: ${roomData.toString()}`});
-        }
-        else {
+        if (roomData === null) {
+            this.setState({ chatStatus: `Room does not exist!` });
+        } else if (roomData instanceof Error) {
+            this.setState({
+                chatStatus: `Error getting room: ${roomData.toString()}`,
+            });
+        } else {
             window.location.href = `../chat?roomCode=${roomData.code}`;
         }
-
 
         //set working to false
         this.working = false;
     }
 
-    render(){
-        return(
-            <div className={"App"}>
-                <header className={"App-header-fix"}>
-                    <div style={{alignItems:"flex-start", flexDirection:"column"}}>
-                        <div style={{width:"100%", display:"inline-block", whiteSpace:"nowrap", paddingBottom:"20px", paddingTop:"10px", borderStyle:"solid", fontSize:"40px", padding:"18px"}}>
-                            <Form onSubmit={ async (event) => {await this.submitForm(event)}}>
-                                <Form.Group controlId="roomCode">
-                                    <Form.Label style={{display:"inline-block"}}>Enter Room Code: </Form.Label>
-                                    <div style={{paddingLeft:"15px", display:"inline-block"}}/>
-                                    <Form.Control style={{display:"inline-block", height:"50px", paddingTop:"10px", fontSize:"40px", width:"275px"}} name="roomCode" type="text" placeholder="Room Code" />
-                                </Form.Group>
-                                <Button type="submit">
-                                    Submit
+    render() {
+        return (
+            <>
+                <div className={"App"}>
+                    <header className={"App-header-fix"}>
+                        <div style={{ alignItems: "flex-start", flexDirection: "column" }}>
+                            <div
+                                style={{
+                                    width: "100%",
+                                    display: "inline-block",
+                                    whiteSpace: "nowrap",
+                                    paddingBottom: "20px",
+                                    paddingTop: "10px",
+                                    borderStyle: "solid",
+                                    fontSize: "40px",
+                                    padding: "18px",
+                                }}
+                            >
+                                <Form
+                                    onSubmit={async (event) => {
+                                        await this.submitForm(event);
+                                    }}
+                                >
+                                    <Form.Group controlId="roomCode">
+                                        <Form.Label style={{ display: "inline-block" }}>
+                                            Enter Room Code:{" "}
+                                        </Form.Label>
+                                        <div
+                                            style={{ paddingLeft: "15px", display: "inline-block" }}
+                                        />
+                                        <Form.Control
+                                            style={{
+                                                display: "inline-block",
+                                                height: "50px",
+                                                paddingTop: "10px",
+                                                fontSize: "40px",
+                                                width: "275px",
+                                            }}
+                                            name="roomCode"
+                                            type="text"
+                                            placeholder="Room Code"
+                                        />
+                                    </Form.Group>
+                                    <Button type="submit">Submit</Button>
+                                </Form>
+                                <p>{this.state.chatStatus}</p>
+                                <div style={{ paddingTop: "25px" }} />
+                                <Button
+                                    style={{ width: "50%" }}
+                                    variant="outline-light"
+                                    onClick={() => (window.location.href = "../create-room")}
+                                >
+                                    Create a New Room
                                 </Button>
-                            </Form>
-                            <p>{this.state.chatStatus}</p>
+                            </div>
+                            <p className="public-text">Public Chat Rooms</p>
+                            <Container className="public">
+                                <Row>
+                                    <Col className="public-button" onClick={() => this.joinRoom("MATHMATH")}>Math</Col>
+                                    <Col className="public-button" onClick={() => this.joinRoom("PSCIENCE")}>Science</Col>
+                                </Row>
+                                <Row>
+                                    <Col className="public-button" onClick={() => this.joinRoom("PENGLISH")}>English</Col>
+                                    <Col className="public-button" onClick={() => this.joinRoom("SSTUDIES")}>Social Studies</Col>
+                                </Row>
+                            </Container>
                         </div>
-                        <div style={{paddingTop:"25px"}}/>
-                        <Button style={{width:"50%"}} variant="outline-light" onClick={() => window.location.href = "../create-room"}>Create a New Room</Button>
-                    </div>
-                </header>
-            </div>
-        )
+                    </header>
+                </div>
+            </>
+        );
     }
 }
 

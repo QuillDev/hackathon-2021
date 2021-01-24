@@ -45,6 +45,23 @@
   color: #61dafb;
 }
 
+.brand-text {
+  font-size: 1.5em;
+}
+.icon {
+  padding: 0;
+  margin: 0;
+  scale: 75%;
+  border-radius: 50%;
+}
+
+.name {
+  padding: 0;
+  margin: 0;
+  font-size: 1.5em;
+  color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
