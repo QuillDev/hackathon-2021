@@ -59,7 +59,7 @@ class Chat extends Component{
 
         item.textContent = `[${stamp}]: ${msg}`;
         messages.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
+        window.scrollTo(0,document.body.scrollHeight);;
     }
 
     /**

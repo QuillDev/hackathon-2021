@@ -84,28 +84,22 @@ class Dashboard extends Component{
 
         div.innerHTML += `<p></p>`
 
-        let buttonToAccept = document.createElement("button");
-        buttonToAccept.onclick = () => this.replyToRequest(true, entry.name, localStorage.email);
-        buttonToAccept.textContent = "Yes";
-        let buttonToDecline = document.createElement("button");
-        buttonToDecline.onclick = () => this.replyToRequest(false, entry.email, localStorage.email);
-        buttonToDecline.textContent = "No";
-
         let iconToAdd = document.createElement("img");
         iconToAdd.src = entry.icon;
+        iconToAdd.classList ="server-logo";
         let paraToAdd = document.createElement("p");
         let namePara = document.createElement("p");
         namePara.textContent = "Test"
-        paraToAdd.append(iconToAdd, buttonToAccept, buttonToDecline);
+        paraToAdd.append(iconToAdd);
         div.append(paraToAdd)
-        div.innerHTML += `Friend request from ${entry.name}`
+        div.innerHTML += `Friend Request: ${entry.name}: ${entry.email}`
 
     }
 
-//    componentWillMount() {
-//        this.callAPI().then(() => null);
-//        this.getFriendsList();
-//   }
+  componentWillMount() {
+        this.callAPI().then(() => null);
+        this.getFriendsList();
+   }
 
     render() {
         return (
@@ -122,8 +116,9 @@ class Dashboard extends Component{
                         <Col xs={8} id="center-column">
                             <div id="welcomeMessage">
                                 <br/>
-                                <h2>Hello {localStorage.name}!</h2>
-
+                                <h2>Welcome{localStorage.name}!</h2>
+                                <br/>
+                                <h2>Friend Requests</h2>
                                 <div id="friend-requests">
                                 </div>
                             </div>

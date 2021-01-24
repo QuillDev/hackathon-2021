@@ -4,6 +4,9 @@ const db = require("monk")("localhost:27017/hackathon-2021");
 
 async function updateMessageHistory(msg, usr, icon, code){
 
+    if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual'
+    }
 
     //get the room data for the given room
     const roomData = await getRoomData(db, code);

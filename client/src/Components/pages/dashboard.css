@@ -3,7 +3,7 @@ html, body{
     color: white;
     overflow: auto;
     background-color: #282c34;
-    font-family: Comfortaa;
+    font-family: Comfortaa, serif;
 }
 
 div[location^="[object"] {

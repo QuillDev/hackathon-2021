@@ -9,6 +9,7 @@ const http = require( "http" );
 const httpserver = http.createServer(app).listen(3069);
 const io = require( "socket.io" )( httpserver, { cors: {origin: "*"}});
 
+const handleCommand = require("../commands/handleCommand");
 const updateMessageHistory = require("../database/Rooms/updateMessageHistory");
 
 /**
@@ -24,6 +25,7 @@ io.on('connection', (socket) => {
   socket.on("chat message", (msg, usr, icon, room) => {
     updateMessageHistory(msg, usr, icon, room); //update the message history
     io.emit("chat message", msg, usr, icon, room);
+    handleCommand(msg, usr, icon, room, io);
   });
 });
 
