@@ -1,7 +1,9 @@
 import { Component } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "./join.css";
+import {faBook, faCalculator, faFlask, faPen} from "@fortawesome/free-solid-svg-icons";
 
 class Join extends Component {
     constructor(props) {
@@ -111,7 +113,7 @@ class Join extends Component {
                                             placeholder="Room Code"
                                         />
                                     </Form.Group>
-                                    <Button type="submit">Submit</Button>
+
                                 </Form>
                                 <p>{this.state.chatStatus}</p>
                                 <div style={{ paddingTop: "25px" }} />
@@ -126,12 +128,20 @@ class Join extends Component {
                             <p className="public-text">Public Chat Rooms</p>
                             <Container className="public">
                                 <Row>
-                                    <Col className="public-button" onClick={() => this.joinRoom("MATHMATH")}>Math</Col>
-                                    <Col className="public-button" onClick={() => this.joinRoom("PSCIENCE")}>Science</Col>
+                                    <Col className="public-button" onClick={() => this.joinRoom("MATHMATH")}>
+                                        Math <FontAwesomeIcon icon={faCalculator}/>
+                                    </Col>
+                                    <Col className="public-button" onClick={() => this.joinRoom("PSCIENCE")}>
+                                        Science <FontAwesomeIcon icon={faFlask}/>
+                                    </Col>
                                 </Row>
                                 <Row>
-                                    <Col className="public-button" onClick={() => this.joinRoom("PENGLISH")}>English</Col>
-                                    <Col className="public-button" onClick={() => this.joinRoom("SSTUDIES")}>Social Studies</Col>
+                                    <Col className="public-button" onClick={() => this.joinRoom("PENGLISH")}>
+                                        English <FontAwesomeIcon icon={faPen}/>
+                                    </Col>
+                                    <Col className="public-button" onClick={() => this.joinRoom("SSTUDIES")}>
+                                        Social Studies <FontAwesomeIcon icon={faBook}/>
+                                    </Col>
                                 </Row>
                             </Container>
                         </div>
