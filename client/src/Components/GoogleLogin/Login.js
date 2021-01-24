@@ -21,11 +21,10 @@ function Login(){
         //store user data
         localStorage.setItem("name", profile.name);
         localStorage.setItem("icon", profile.imageUrl);
-
-        console.log(res.profileObj);
+        localStorage.setItem("email", profile.email);
 
         // go to join channel page
-        window.location.href = "./join";
+        window.location.href = "./dash";
     };
 
     const onFailure = ( res ) => {

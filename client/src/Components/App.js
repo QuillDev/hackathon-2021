@@ -19,7 +19,7 @@ class App extends Component {
                 <Navbar.Collapse id="responsive-navbar-nav">
                 </Navbar.Collapse>
                 <Nav>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="https://hackathon.quilldev.tech/dash">
                         <img
                             src={localStorage.icon}
                             width="50"
@@ -31,7 +31,7 @@ class App extends Component {
                     </Navbar.Brand>
                     <Navbar.Collapse className="justify-content-end">
                         <NavDropdown title={`Signed in as: ${localStorage.name}`} id="collasible-nav-dropdown">
-                            <NavDropdown.Item ><Logout/></NavDropdown.Item>
+                            <NavDropdown.Item > <Logout/></NavDropdown.Item>
                         </NavDropdown>
                     </Navbar.Collapse>
                 </Nav>

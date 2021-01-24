@@ -13,6 +13,7 @@ async function getUser(db, email) {
         return null;
     }
 
+    console.log(matches[0]);
     //return the first match
     return matches[0];
 }

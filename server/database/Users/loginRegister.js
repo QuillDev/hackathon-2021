@@ -19,6 +19,7 @@ async function loginRegister(db, email, name, icon) {
                 icon,
                 friends: [],
                 servers: [],
+                friendRequests: []
             });
         }
 

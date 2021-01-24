@@ -24,7 +24,7 @@ async function updateMessageHistory(msg, usr, icon, code){
         usr,
         msg,
         icon,
-        timestamp: timeStamp("HHss")
+        timestamp: timeStamp("HH:ss")
     })
 
     await rooms.findOneAndUpdate({code: code},

@@ -1,0 +1,85 @@
+html, body{
+    height: 100%;
+    color: white;
+    overflow: auto;
+    background-color: #1a1919;
+}
+
+.max-height{
+    height: 100%;
+    color: white;
+    overflow: auto;
+}
+#crappy_hacky_solution{
+    height: auto;
+    overflow: visible;
+}
+
+#container-row {
+    height: 100%;
+}
+
+#serverList{
+    text-align: center;
+    color: white;
+}
+
+#center-column {
+    background-color: #232222;
+    border-style: solid;
+    border-width: .3em;
+}
+.side-column {
+    background-color: #1a1919;
+    border-style: solid;
+    border-width: .3em;
+}
+
+#serverList img {
+
+}
+
+.frq-icon{
+    width: 3.5em;
+    height: 3.5em;
+    border-color: white;
+    border-style: solid;
+    border-radius: 50%;
+    margin-bottom: .75em;
+}
+
+.frq-div{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-right: 2em;
+}
+
+.choiceButton {
+    border: none;
+    background-color: gray;
+}
+.server-logo {
+    width: 6.5em;
+    height: 6.5em;
+    border-color: white;
+    border-style: solid;
+    border-radius: 50%;
+    margin-bottom: .75em;
+}
+.server-logo-text{
+    margin-left: auto;
+    margin-right: auto;
+    width: 6.5em;
+    height: 6.5em;
+    border-color: white;
+    border-style: solid;
+    border-radius: 50%;
+    margin-bottom: .75em;
+}
+
+.server-logo-text div {
+    font-size: 4em;
+    position: relative;
+    top: 50%;
+    transform: translateY(-.825em);
+}

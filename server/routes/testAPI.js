@@ -2,11 +2,20 @@ const express = require("express");
 const router = express.Router();
 
 const loginRegister = require("../database/Users/loginRegister");
+
+//Rooms
 const createRoom = require("../database/Rooms/create-room");
 const getRoomData = require("../database/Rooms/getRoomData");
 const editFavorite = require("../database/Actions/editFavorite");
 const getFavorites = require("../database/Actions/getFavorites");
+
+//Messages
 const getMessageHistory = require("../database/Rooms/getMessageHistory");
+
+//FriendsS
+const sendFriendRequest = require("../database/Friends/sendFriendRequest");
+const acceptFriendRequest = require("../database/Friends/acceptFriendRequest")
+const getFriendRequest =require("../database/Friends/getFriendRequest");
 
 //get the database
 const db = require("monk")("localhost:27017/hackathon-2021");
@@ -44,6 +53,21 @@ router.get("/getFavorites", async function (req, res, next){
 
 router.get("/getMessageHistory", async function (req, res, next){
     let response = await getMessageHistory(db, req.query.roomCode);
+    res.json(response);
+})
+
+router.get("/sendFriendRequest", async function (req, res, next){
+    let response = await sendFriendRequest(db, req.query.sender, req.query.receiver);
+    res.json(response);
+})
+
+router.get("/acceptFriendRequest", async function (req, res, next){
+    let response = await acceptFriendRequest(db, req.query.accepted, req.query.sender, req.query.receiver);
+    res.json(response);
+})
+
+router.get("/getFriendRequests", async function (req, res, next){
+    let response = await getFriendRequest(db, req.query.email);
     res.json(response);
 })
 

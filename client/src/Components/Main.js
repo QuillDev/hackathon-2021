@@ -6,7 +6,9 @@ import Home from './pages/Home';
 import Chat from "./pages/Chat";
 import Join from "./pages/Join";
 import App from "./App";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Dashboard from "./pages/Dashboard";
 
 const Main = () => {
     return (
@@ -16,6 +18,7 @@ const Main = () => {
             <App/>
             <Route exact path='/chat' component={Chat}/>
             <Route exact path='/join' component={Join}/>
+            <Route exact path='/dash' component={Dashboard}/>
             <Route exact path='/create-room' component={CreateRoom}/>
         </div>
         </Switch>

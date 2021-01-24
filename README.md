@@ -7,13 +7,14 @@
 - [x] Create classroom
 - [x] Join classroom
 ### Extra Goals
-- [ ] Add classrooms to people (favorites?)
-- [ ] Dashboard 
+- [x] Add classrooms to people (favorites?)
+- [x] Dashboard
+- [x] Persistent chat
 - [ ] Add friends
 - [ ] Add friend from chat
-- [ ] See which friends are online  
-- [ ] PM'S
+- [ ] See which friends are online
 - [ ] Send images in chat
+- [ ] PM'S
 - [ ] MC Questions/Tests
 
 # Getting Started with Create React App
