@@ -233,7 +233,7 @@ class Chat extends Component{
                             </form>
                         </div>
                     </div>
-
+                    <a>{this.state.roomCode}</a>
                 </header>
             </div>
         );
