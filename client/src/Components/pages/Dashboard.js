@@ -101,11 +101,11 @@ class Dashboard extends Component{
         div.innerHTML += `Friend request from ${entry.name}`
 
     }
-    //ignore this
+
     componentWillMount() {
         this.callAPI().then(() => null);
         this.getFriendsList();
-    }
+   }
 
     render() {
         return (
@@ -115,12 +115,13 @@ class Dashboard extends Component{
                         <Col className="side-column" xs={2}>
 
                             <div id="serverList">
-                                <h1>SERVERS:</h1>
+                                <h1 style={{paddingTop: "15px"}}>SERVERS:</h1>
                                 <Link to="../join"><Image className="server-logo" src={joinImage}/></Link>
                             </div>
                         </Col>
                         <Col xs={8} id="center-column">
                             <div id="welcomeMessage">
+                                <br/>
                                 <h2>Hello {localStorage.name}!</h2>
 
                                 <div id="friend-requests">
@@ -128,10 +129,10 @@ class Dashboard extends Component{
                             </div>
 
                         </Col>
-                        <Col className="side-column" xs={2}>
-                            <h1>Friends</h1>
+                        <Col className={"side-column"} xs={2}>
+                            <h1 style={{paddingTop: "15px"}}>Friends</h1>
                             <form onSubmit={ async (e) => await this.submitFriendRequest(e)}>
-                                <label>Add a friend by their G-Mail: </label>
+                                <label>Add a friend by email: </label>
                                 <input name="friend-email"/>
                             </form>
                             <div id="friendsList">

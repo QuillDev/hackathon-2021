@@ -9,9 +9,9 @@ class App extends Component {
     render(){
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand className="brand-text" href="../">
+                <Navbar.Brand className="brand-text" href="../dash">
 
-                    <p>
+                    <p id="App-logo">
                         <FontAwesomeIcon icon={faEye}/> { "{ Observe }" }
                     </p>
                 </Navbar.Brand>
