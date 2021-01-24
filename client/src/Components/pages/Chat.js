@@ -2,6 +2,9 @@ import {Component} from "react";
 import qs from "qs";
 import socketIOClient from "socket.io-client";
 import "./chat.css";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faClipboard, faReply} from "@fortawesome/free-solid-svg-icons";
+import timestamp from "time-stamp";
 
 class Chat extends Component{
 
@@ -30,13 +33,16 @@ class Chat extends Component{
                 const nameMsg = document.createElement('li');
                 nameMsg.classList.add(classname);
                 nameMsg.classList.add("name");
-                nameMsg.innerHTML= `<p><img src="${icon}" class="user-icon" alt="">${usr}</p></img>`;
+                nameMsg.innerHTML= `<img src="${icon}" class="user-icon" alt="">  ${usr}</p></img>`;
                 messages.appendChild(nameMsg);
                 window.scrollTo(0, document.body.scrollHeight);
             }
             const item = document.createElement('li');
             item.classList.add(classname);
-            item.textContent = msg;
+
+            let hour = parseInt(timestamp("HH"));
+            let suffix = hour > 12 ? "pm" : "am";
+            item.textContent = `[${timestamp("HH:mm")}${suffix}]: ${msg}`;
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);
         });
@@ -75,6 +81,9 @@ class Chat extends Component{
         this.roomCode = roomData.code;
     }
 
+    getFile(){
+        document.getElementById("openfile").click();
+    }
     //ignore this
     async componentWillMount() {
         await this.getRoomData();
@@ -108,19 +117,22 @@ class Chat extends Component{
             <div className={"App"}>
                 <header className={"App-header-fix"}>
                     {/* Set the room name */}
-                    <div style={{alignItems:"flex-start", flexDirection:"row"}}>
-                        <div style={{paddingBottom:"20px", paddingTop:"10px"}}>
-                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                            <a style={{borderStyle:"solid", fontSize:"40px", padding:"15px"}}>{this.state.roomName}</a>
-                        </div>
+                    <div id="roomBanner">
+                        {this.state.roomName}
                     </div>
                     <div id="messages">
                     </div>
-                    <div style={{textAlign: "center"}}>
-                        <form onSubmit={(event) => this.sendMessage(event)} id="form" action="">
-                            <input autoComplete="off" name="chatBox"/>
-                            <button>Send</button>
-                        </form>
+                    <div id="chat-box-div">
+
+                        <div style={{textAlign: "center"}}>
+                            <form onSubmit={(event) => this.sendMessage(event)} id="form" action="">
+
+                                <input autoComplete="off" name="chatBox"/>
+                                <button type="submit"><FontAwesomeIcon icon={faReply}/></button>
+                                <button onClick={() => this.getFile()} type='button' ><FontAwesomeIcon icon={faClipboard}/></button>
+                                <input id="openfile" type='file' hidden/>
+                            </form>
+                        </div>
                     </div>
 
                 </header>
