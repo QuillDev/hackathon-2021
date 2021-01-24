@@ -11,7 +11,8 @@ async function createRoom(db, name) {
         //create a room object
         const room = {
             name,
-            code
+            code,
+            messages: []
         }
 
         //get any matches for the room

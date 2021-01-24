@@ -1,21 +1,24 @@
+
+const getUser = require("./getUser");
+
 async function loginRegister(db, email, name, icon) {
 
     try {
+
+        //get the users database
         const users = db.get("users");
 
-        const matches = await users.find({email: email}, '-bigdata');
-
-        //if matches is null return
-        if(matches == null){
-            return;
-        }
+        //get the matching user for the email
+        const user = await getUser(db, email);
 
         //if there are no matches it's a new user!
-        if(matches.length === 0){
+        if(user === null) {
             await users.insert({
                 email,
                 name,
-                icon
+                icon,
+                friends: [],
+                servers: [],
             });
         }
 

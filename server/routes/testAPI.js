@@ -4,9 +4,13 @@ const router = express.Router();
 const loginRegister = require("../database/Users/loginRegister");
 const createRoom = require("../database/Rooms/create-room");
 const getRoomData = require("../database/Rooms/getRoomData");
+const editFavorite = require("../database/Actions/editFavorite");
+const getFavorites = require("../database/Actions/getFavorites");
+const getMessageHistory = require("../database/Rooms/getMessageHistory");
 
 //get the database
 const db = require("monk")("localhost:27017/hackathon-2021");
+db.addMiddleware(require('monk-middleware-wrap-non-dollar-update'))
 
 router.get("/", function(req, res, next){
     res.send("API is up!");
@@ -27,5 +31,20 @@ router.get("/join-room", async function(req, res, next){
     const response = await getRoomData(db, req.query.id);
     res.json(response);
 });
+
+router.get("/editFavorite", async function (req, res, next){
+    await editFavorite(db, req.query.favorite, req.query.roomCode, req.query.email, req.query.roomName)
+    res.send("success");
+})
+
+router.get("/getFavorites", async function (req, res, next){
+    let response = await getFavorites(db, req.query.email);
+    res.json(response);
+})
+
+router.get("/getMessageHistory", async function (req, res, next){
+    let response = await getMessageHistory(db, req.query.roomCode);
+    res.json(response);
+})
 
 module.exports = router;
