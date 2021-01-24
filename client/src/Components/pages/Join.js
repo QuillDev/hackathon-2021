@@ -77,7 +77,7 @@ class Join extends Component{
                                 <Form.Group controlId="roomCode">
                                     <Form.Label style={{display:"inline-block"}}>Enter Room Code: </Form.Label>
                                     <div style={{paddingLeft:"15px", display:"inline-block"}}/>
-                                    <Form.Control style={{display:"inline-block", height:"50px", paddingTop:"10px", fontSize:"40px", width:"275px"}} type="text" placeholder="Room Code" />
+                                    <Form.Control style={{display:"inline-block", height:"50px", paddingTop:"10px", fontSize:"40px", width:"275px"}} name="roomCode" type="text" placeholder="Room Code" />
                                 </Form.Group>
                                 <Button type="submit">
                                     Submit
