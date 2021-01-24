@@ -1,0 +1,11 @@
+html, body{
+    height: 89% !important;
+}
+
+div[location^="[object"] {
+    height: 89% !important;
+}
+
+#root {
+    height: 89% !important;
+}
