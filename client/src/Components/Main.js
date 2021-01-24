@@ -1,10 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import CreateRoom from "./pages/CreateRoom";
 import Home from './pages/Home';
 import Chat from "./pages/Chat";
 import Join from "./pages/Join";
-import CreateRoom from "./pages/CreateRoom";
 import App from "./App";
 
 const Main = () => {
