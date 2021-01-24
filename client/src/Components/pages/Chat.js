@@ -218,7 +218,7 @@ class Chat extends Component{
                     {/* Set the room name */}
                     <div id="roomBanner">
                         {this.state.roomName}
-                        <div onClick={ () => {this.favorite = !this.favorite; this.drawFavorite(); this.updateFavorite();}}  id="starDiv"/>
+                        <div as="button" onClick={ () => {this.favorite = !this.favorite; this.drawFavorite(); this.updateFavorite();}}  id="starDiv"/>
                     </div>
                     <div id="messages">
                     </div>

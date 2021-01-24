@@ -84,6 +84,9 @@ class Join extends Component {
                                     paddingBottom: "20px",
                                     paddingTop: "10px",
                                     borderStyle: "solid",
+                                    borderTop: "none",
+                                    borderLeft: "none",
+                                    borderRight: "none",
                                     fontSize: "40px",
                                     padding: "18px",
                                 }}
@@ -94,7 +97,7 @@ class Join extends Component {
                                     }}
                                 >
                                     <Form.Group controlId="roomCode">
-                                        <Form.Label style={{ display: "inline-block" }}>
+                                        <Form.Label style={{ display: "inline-block"}}>
                                             Enter Room Code:{" "}
                                         </Form.Label>
                                         <div
@@ -103,7 +106,7 @@ class Join extends Component {
                                         <Form.Control
                                             style={{
                                                 display: "inline-block",
-                                                height: "50px",
+                                                height: "60px",
                                                 paddingTop: "10px",
                                                 fontSize: "40px",
                                                 width: "275px",
@@ -122,24 +125,24 @@ class Join extends Component {
                                     className="create-button"
                                     onClick={() => (window.location.href = "../create-room")}
                                 >
-                                    Create a New Room
+                                    Create New Room
                                 </Button>
                             </div>
-                            <p className="public-text">Public Chat Rooms</p>
+                            <p className="public-text" style={{marginTop:".5em"}}>Public Chat Rooms</p>
                             <Container className="public">
                                 <Row>
-                                    <Col className="public-button" onClick={() => this.joinRoom("MATHMATH")}>
+                                    <Col as="button" className="public-button" onClick={() => this.joinRoom("MATHMATH")}>
                                         Math <FontAwesomeIcon icon={faCalculator}/>
                                     </Col>
-                                    <Col className="public-button" onClick={() => this.joinRoom("PSCIENCE")}>
+                                    <Col as="button" className="public-button" onClick={() => this.joinRoom("PSCIENCE")}>
                                         Science <FontAwesomeIcon icon={faFlask}/>
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col className="public-button" onClick={() => this.joinRoom("PENGLISH")}>
+                                    <Col as="button" className="public-button" onClick={() => this.joinRoom("PENGLISH")}>
                                         English <FontAwesomeIcon icon={faPen}/>
                                     </Col>
-                                    <Col className="public-button" onClick={() => this.joinRoom("SSTUDIES")}>
+                                    <Col as="button" className="public-button" onClick={() => this.joinRoom("SSTUDIES")}>
                                         Social Studies <FontAwesomeIcon icon={faBook}/>
                                     </Col>
                                 </Row>
