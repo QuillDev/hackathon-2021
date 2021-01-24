@@ -1,6 +1,7 @@
 import {Component} from "react";
 import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class RoomForm extends Component {
 
@@ -27,14 +28,14 @@ class RoomForm extends Component {
     }
     render() {
         return (
-            <div onKeyUpCapture={ (key) => this.handleKeyPress(key)}>
+            <div style={{flex:"content"}} onKeyUpCapture={ (key) => this.handleKeyPress(key)}>
                 <Form onSubmit={ (e) => this.submitForm(e)}>
-                    <Form.Group>
-                        <Form.Label>Name of chatroom: </Form.Label>
-                        <Form.Control name="chatname" placeholder="Chatroom Name" />
+                    <Form.Group class="text-center">
+                        <Form.Label style={{paddingBottom:"10px"}}>Create a study room: </Form.Label>
+                        <Form.Control style={{textAlign:"center", height:"50px", fontSize:"30px"}} name="chatname" placeholder="Study Room" />
                     </Form.Group>
-                    <Button variant="primary" type="button">
-                        Submit
+                    <Button variant="outline-light" type="button">
+                        Create
                     </Button>
                 </Form>
 

@@ -39,6 +39,7 @@ class Home extends Component {
                     </Jumbotron>
                     <div style={{paddingTop: "40px"}}/>
                     <Login/>
+                    <div style={{paddingTop: "20px"}}/>
                     <p>{this.state.apiResponse}</p>
                 </header>
             </div>

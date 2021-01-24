@@ -49,9 +49,11 @@ class CreateRoom extends Component{
     render(){
         return(
             <div className={"App"}>
-                <header className={"App-header-fix"}>
-                    <RoomForm/>
-                    <p>{this.state.roomStatus}</p>
+                <header className={"App-header"}>
+                    <div style={{borderStyle:"solid", fontSize:"40px", padding:"15px"}}>
+                        <RoomForm/>
+                        <p>{this.state.roomStatus}</p>
+                    </div>
                 </header>
             </div>
         )
