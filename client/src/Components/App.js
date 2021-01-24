@@ -13,7 +13,7 @@ class App extends Component {
                 <Navbar.Collapse id="responsive-navbar-nav">
                 </Navbar.Collapse>
                 <Nav>
-                    <!-- add profile photo/logout and name here-->
+                    //add profile photo/logout and name here
                 </Nav>
             </Navbar>
         );
