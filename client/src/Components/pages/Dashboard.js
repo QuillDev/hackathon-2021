@@ -102,16 +102,16 @@ class Dashboard extends Component{
 
     }
 
-    componentWillMount() {
-        this.callAPI().then(() => null);
-        this.getFriendsList();
-   }
+//    componentWillMount() {
+//        this.callAPI().then(() => null);
+//        this.getFriendsList();
+//   }
 
     render() {
         return (
-            <div>
-                <Container fluid={true}>
-                    <Row>
+            <div style={{height:"100%"}}>
+                <Container style={{height:"100%"}} fluid={true}>
+                    <Row style={{height:"100%"}}>
                         <Col className="side-column" xs={2}>
 
                             <div id="serverList">

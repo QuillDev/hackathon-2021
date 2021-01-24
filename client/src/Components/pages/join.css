@@ -1,10 +1,12 @@
 .public-button {
     border-style: solid;
-    border-color: #e7e4e4;
+    border-color: #f8f9fa;
     border-width: .1em;
-    background-color: #429ad0;
+    background-color: #343A40;
+    color: white;
 }
 
 .create-button {
     width: 50%;
+    height: 3em;
 }
