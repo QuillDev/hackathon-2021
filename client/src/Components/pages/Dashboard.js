@@ -66,12 +66,23 @@ class Dashboard extends Component{
         }
     }
 
-    async getFriendsList(){
+    async getFriendRequests(){
         const res = await fetch(`https://api.quilldev.tech/api/getFriendRequests?email=${localStorage.email}`)
             .then(res => res.json());
 
         for(const entry of res){
             this.addFriendRequest(entry);
+        }
+    }
+
+    async loadFriends(){
+        const friends = await fetch(`https://api.quilldev.tech/api/getFriends?email=${localStorage.email}`)
+            .then(res => res.json());
+
+        const friendDiv = document.getElementById("friendsList")
+        
+        for(const friend of friends){
+            friendDiv.innerHTML += `<img class="friend-icon" src=${friend.icon} alt={}><p>${friend.name}</p>`;
         }
     }
 
@@ -98,7 +109,8 @@ class Dashboard extends Component{
 
   componentWillMount() {
         this.callAPI().then(() => null);
-        this.getFriendsList();
+        this.getFriendRequests();
+        this.loadFriends();
    }
 
     render() {
@@ -116,7 +128,7 @@ class Dashboard extends Component{
                         <Col xs={8} id="center-column">
                             <div id="welcomeMessage">
                                 <br/>
-                                <h2>Welcome{localStorage.name}!</h2>
+                                <h2>Welcome {localStorage.name}!</h2>
                                 <br/>
                                 <h2>Friend Requests</h2>
                                 <div id="friend-requests">

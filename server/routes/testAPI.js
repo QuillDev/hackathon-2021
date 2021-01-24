@@ -16,6 +16,7 @@ const getMessageHistory = require("../database/Rooms/getMessageHistory");
 const sendFriendRequest = require("../database/Friends/sendFriendRequest");
 const acceptFriendRequest = require("../database/Friends/acceptFriendRequest")
 const getFriendRequest =require("../database/Friends/getFriendRequest");
+const getFriends = require("../database/Friends/getFriends");
 
 //get the database
 const db = require("monk")("localhost:27017/hackathon-2021");
@@ -63,6 +64,11 @@ router.get("/sendFriendRequest", async function (req, res, next){
 
 router.get("/getFriendRequests", async function (req, res, next){
     let response = await getFriendRequest(db, req.query.email);
+    res.json(response);
+})
+
+router.get("/getFriends", async function (req, res, next){
+    let response = await getFriends(db, req.query.email);
     res.json(response);
 })
 

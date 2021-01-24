@@ -94,6 +94,16 @@ div[location^="[object"] {
     border-radius: 50%;
     margin-bottom: .75em;
 }
+
+.friend-icon {
+    width: 5em;
+    height: 5em;
+    border-color: white;
+    border-style: solid;
+    border-radius: 50%;
+    margin-top: .75em;
+    margin-bottom: .75em;
+}
 .server-logo-text{
     margin-left: auto;
     margin-right: auto;
