@@ -59,12 +59,7 @@ router.get("/getMessageHistory", async function (req, res, next){
 router.get("/sendFriendRequest", async function (req, res, next){
     let response = await sendFriendRequest(db, req.query.sender, req.query.receiver);
     res.json(response);
-})
-
-router.get("/acceptFriendRequest", async function (req, res, next){
-    let response = await acceptFriendRequest(db, req.query.accepted, req.query.sender, req.query.receiver);
-    res.json(response);
-})
+});
 
 router.get("/getFriendRequests", async function (req, res, next){
     let response = await getFriendRequest(db, req.query.email);
