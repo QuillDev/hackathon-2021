@@ -1,15 +1,20 @@
 import './App.css';
 import {Component} from "react";
-import {Image, Nav, Navbar, NavDropdown} from "react-bootstrap";
-import logo from "../nonAnimatedLogo.gif"
+import {Nav, Navbar, NavDropdown} from "react-bootstrap";
 import Logout from "./GoogleLogin/Logout";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faEye} from "@fortawesome/free-solid-svg-icons";
 
 class App extends Component {
     render(){
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Nav.Item as="img" src={logo} style={{width: "40px", height: "40px", marginRight: "10px"}}/>
-                <Navbar.Brand className="brand-text" href="../"> {"{ Observe }"} </Navbar.Brand>
+                <Navbar.Brand className="brand-text" href="../">
+
+                    <p>
+                        <FontAwesomeIcon icon={faEye}/> { "{ Observe }" }
+                    </p>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 </Navbar.Collapse>

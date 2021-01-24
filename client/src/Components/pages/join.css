@@ -4,3 +4,7 @@
     border-width: .1em;
     background-color: #429ad0;
 }
+
+.create-button {
+    width: 50%;
+}

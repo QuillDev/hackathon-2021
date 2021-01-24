@@ -2,15 +2,19 @@
 ## Checklist
 ### MAIN GOALS 
 - [x] Working Webserver
-- [ ] Login with google
-- [ ] Chatting
-- [ ] Create classroom
-- [ ] Join classroom
-### IF WE GET TO IT 
-- [ ] PM?
+- [x] Login with google
+- [x] Chatting
+- [x] Create classroom
+- [x] Join classroom
+### Extra Goals
+- [ ] Add classrooms to people (favorites?)
+- [ ] Dashboard 
+- [ ] Add friends
+- [ ] Add friend from chat
+- [ ] See which friends are online  
+- [ ] PM'S
 - [ ] Send images in chat
 - [ ] MC Questions/Tests
-- [ ] Light Theme 
 
 # Getting Started with Create React App
 

@@ -118,8 +118,8 @@ class Join extends Component {
                                 <p>{this.state.chatStatus}</p>
                                 <div style={{ paddingTop: "25px" }} />
                                 <Button
-                                    style={{ width: "50%" }}
                                     variant="outline-light"
+                                    className="create-button"
                                     onClick={() => (window.location.href = "../create-room")}
                                 >
                                     Create a New Room
