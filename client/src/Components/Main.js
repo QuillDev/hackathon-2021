@@ -10,6 +10,7 @@ import Question from "./pages/Question";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from "./pages/Dashboard";
+import ModalTest from "./pages/Modal/ModalTest";
 
 const Main = () => {
     return (
@@ -22,6 +23,7 @@ const Main = () => {
             <Route exact path='/dash' component={Dashboard}/>
             <Route exact path='/create-room' component={CreateRoom}/>
             <Route exact path='/question' component={Question}/>
+            <Route exact path='/modal' component={ModalTest}/>
         </div>
         </Switch>
     );

@@ -1,6 +1,7 @@
 const { elements } = require("./periodic.json");
-var Owlbot = require('owlbot-js');
-var client = Owlbot(process.env.REACT_APP_OWLBOT_KEY);
+const Owlbot = require('owlbot-js');
+require("dotenv").config();
+const owlclient = Owlbot(process.env.REACT_APP_OWLBOT_KEY);
 
 async function handleCommand(msg, usr, icon, room, io) {
 
@@ -13,7 +14,8 @@ async function handleCommand(msg, usr, icon, room, io) {
 
     switch (command){
         case "define":
-            spitFire(define(args), io, room);
+            spitFire(await define(args), io, room);
+            break
         case "tb":
             spitFire(getElement(args), io, room);
             break;
@@ -30,7 +32,8 @@ async function handleCommand(msg, usr, icon, room, io) {
 }
 
 function getHelp(){
-    return`tb [elementName] - gets information about the specified element.`
+    return`tb [elementName] - gets information about the specified element.
+    define [word] - gets the english definition and type for the given word`;
 }
 function spitFire(string, io, room){
 
@@ -48,8 +51,6 @@ function spitFire(string, io, room){
 function getElement(args){
     for(const element of elements){
         if(args[1].toLowerCase() === element.name.toLowerCase()){
-
-            console.log(element)
             return `Element: ${element.name}
             Atomic Mass: ${element.atomic_mass}
             Discovered By: ${element.discovered_by}
@@ -58,10 +59,14 @@ function getElement(args){
     }
 }
 
-function define(args) {
-    client.define(args).then(function(result) {
-        return(result.definition);
-    });
+async function define(args) {
+    let word = args.splice(1, args.length -1).join(" ");
+    return await owlclient.define(word)
+        .then(function (result) {
+            let def = result.definitions[0];
+
+            return `Word: ${result.word}\nType: ${def.type}\nDefinition: ${def.definition}`;
+        });
 }
 
 module.exports = handleCommand;
