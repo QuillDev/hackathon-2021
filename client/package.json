@@ -14,6 +14,7 @@
     "bootstrap": "^4.6.0",
     "monk": "^7.3.2",
     "nodeenv": "^3.0.38",
+    "owlbot-js": "^2.0.2",
     "qs": "^6.9.6",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",

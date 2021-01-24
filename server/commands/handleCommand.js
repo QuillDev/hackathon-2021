@@ -1,4 +1,6 @@
 const { elements } = require("./periodic.json");
+var Owlbot = require('owlbot-js');
+var client = Owlbot(process.env.REACT_APP_OWLBOT_KEY);
 
 async function handleCommand(msg, usr, icon, room, io) {
 
@@ -10,6 +12,8 @@ async function handleCommand(msg, usr, icon, room, io) {
     let command = args[0].substring(1, args[0].length);
 
     switch (command){
+        case "define":
+            spitFire(define(args), io, room);
         case "tb":
             spitFire(getElement(args), io, room);
             break;
@@ -52,6 +56,12 @@ function getElement(args){
             Description: ${element.summary}`
         }
     }
+}
+
+function define(args) {
+    client.define(args).then(function(result) {
+        return(result.definition);
+    });
 }
 
 module.exports = handleCommand;

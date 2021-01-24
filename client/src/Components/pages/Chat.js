@@ -5,6 +5,7 @@ import "./chat.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClipboard, faReply} from "@fortawesome/free-solid-svg-icons";
 import timestamp from "time-stamp";
+import {faChild} from "@fortawesome/free-solid-svg-icons/faChild";
 
 class Chat extends Component{
 
@@ -233,6 +234,7 @@ class Chat extends Component{
                                 <input autoComplete="off" name="chatBox"/>
                                 <button type="submit"><FontAwesomeIcon icon={faReply}/></button>
                                 <button onClick={() => this.getFile()} type='button' ><FontAwesomeIcon icon={faClipboard}/></button>
+                                <button type='button' ><FontAwesomeIcon icon={faChild}/></button>
                                 <input id="openfile" type='file' hidden/>
                             </form>
                         </div>
