@@ -3,6 +3,7 @@ import {Col, Container, Image, Row} from "react-bootstrap";
 import "./dashboard.css"
 import joinImage from "./join.png";
 import {Link} from "react-router-dom";
+import {icon} from "@fortawesome/fontawesome-svg-core";
 
 class Dashboard extends Component{
 
@@ -74,17 +75,31 @@ class Dashboard extends Component{
         }
     }
 
-    replyToRequest(a, b, c){
-        console.log(a, b, c)
+    replyToRequest(a){
+        console.log(a);
     }
     addFriendRequest(entry){
+
         const div = document.getElementById("friend-requests");
-        div.innerHTML += `
-        <p class="frq-div" xmlns="http://www.w3.org/1999/html">
-            <img class="frq-icon" src="${entry.icon}" alt=""/>${entry.name} wants to be your friend! 
-            <button class="choiceButton" onclick="replyToRequest(true, localStorage.email, {entry.email})">✔️</button>
-            <button class="choiceButton" onclick="replyToRequest(false, localStorage.email, {entry.email})">❌</button>
-        </p>`
+
+        div.innerHTML += `<p></p>`
+
+        let buttonToAccept = document.createElement("button");
+        buttonToAccept.onclick = () => this.replyToRequest(true, entry.name, localStorage.email);
+        buttonToAccept.textContent = "Yes";
+        let buttonToDecline = document.createElement("button");
+        buttonToDecline.onclick = () => this.replyToRequest(false, entry.email, localStorage.email);
+        buttonToDecline.textContent = "No";
+
+        let iconToAdd = document.createElement("img");
+        iconToAdd.src = entry.icon;
+        let paraToAdd = document.createElement("p");
+        let namePara = document.createElement("p");
+        namePara.textContent = "Test"
+        paraToAdd.append(iconToAdd, buttonToAccept, buttonToDecline);
+        div.append(paraToAdd)
+        div.innerHTML += `Friend request from ${entry.name}`
+
     }
     //ignore this
     componentWillMount() {

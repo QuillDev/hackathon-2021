@@ -226,7 +226,6 @@ class Chat extends Component{
 
                         <div style={{textAlign: "center"}}>
                             <form onSubmit={(event) => this.sendMessage(event)} id="form" action="">
-
                                 <input autoComplete="off" name="chatBox"/>
                                 <button type="submit"><FontAwesomeIcon icon={faReply}/></button>
                                 <button onClick={() => this.getFile()} type='button' ><FontAwesomeIcon icon={faClipboard}/></button>
