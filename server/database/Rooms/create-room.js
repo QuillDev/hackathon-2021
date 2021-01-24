@@ -5,7 +5,6 @@ async function createRoom(db, name) {
     //get the rooms category
     const rooms = db.get("rooms");
 
-    console.log(name);
     try {
         const code = Str.random(8);
 
