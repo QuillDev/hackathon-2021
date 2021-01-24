@@ -1,4 +1,4 @@
 .idea
 client/.eslintcache
-
 .eslintcache
+client/public/env.js

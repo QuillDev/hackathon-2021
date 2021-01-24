@@ -2,7 +2,6 @@ const getUser = require("../Users/getUser");
 
 async function sendFriendRequest(db, sender, receiver) {
 
-    console.log(1, sender, receiver)
     //you can't send a friend request to yourself
     if (receiver === sender) {
         return "null"
