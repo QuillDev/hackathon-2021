@@ -1,13 +1,9 @@
-const Str = require("@supercharge/strings");
-
 async function getRoomData(db, code) {
 
     //get the rooms category
     const rooms = db.get("rooms");
 
     try {
-
-        console.log(code)
         let results = await rooms.find({code: code}, '-bigdata');
 
         //if results is null, return null

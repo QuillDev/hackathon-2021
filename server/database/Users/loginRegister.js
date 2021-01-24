@@ -12,7 +12,6 @@ async function loginRegister(db, email, name) {
 
         //if matches is null return
         if(matches == null){
-            db.close();
             return;
         }
 
