@@ -5,11 +5,26 @@ import {loginRegister} from "./loginRegister";
 
 function Login(){
     const onSuccess = async ( res ) => {
+
+        //get the profile
+        const profile = res.profileObj;
+
         //try to login/register with the given profile object
         await loginRegister(res.profileObj);
 
         //start the token auth system
         refreshTokenSetup(res);
+
+        //clear the local storage
+        await localStorage.clear();
+
+        //store user data
+        localStorage.setItem("name", profile.name);
+        localStorage.setItem("icon", profile.imageUrl);
+
+        console.log(res.profileObj);
+
+        // go to join channel page
         window.location.href = "./join";
     };
 

@@ -13,7 +13,8 @@ router.get("/", function(req, res, next){
 });
 
 router.get("/login", async function(req, res, next){
-    const response = await loginRegister(db, req.query.email, req.query.name);
+    console.log(req.query);
+    const response = await loginRegister(db, req.query.email, req.query.name, req.query.image);
     res.send(response);
 });
 

@@ -30,7 +30,7 @@ class RoomForm extends Component {
         const data = new FormData(e.target);
 
         //get the entered name for the chat
-        let name = data.get("chatname");
+        let name = data.get("chatName");
 
         //if the name has a length of 0,
         if(!name || name.length === 0){
@@ -41,9 +41,8 @@ class RoomForm extends Component {
         this.setState({chatStatus: `Creating Chatroom "${name}"`});
 
         //make a create room request to the api
-        let roomCode = await fetch(`https://api.quilldev.tech/api/join-room?code=${name}`)
+        let roomCode = await fetch(`https://api.quilldev.tech/api/create-room?name=${name}`)
             .then( async (res) => {
-
                 //if we fail to create a room, let us know
                 if(res.status !== 200){
                     return new Error(`Couldn't create room Error: [${res.status}]`);
@@ -66,11 +65,11 @@ class RoomForm extends Component {
 
     render() {
         return (
-            <div style={{flex:"content"}} onKeyUpCapture={ (key) => this.handleKeyPress(key)}>
+            <div style={{flex:"content"}}>
                 <Form onSubmit={ (e) => this.submitForm(e)}>
-                    <Form.Group class="text-center">
+                    <Form.Group className="text-center">
                         <Form.Label style={{paddingBottom:"10px"}}>Create a study room: </Form.Label>
-                        <Form.Control style={{textAlign:"center", height:"50px", fontSize:"30px"}} name="chatname" placeholder="Study Room" />
+                        <Form.Control style={{textAlign:"center", height:"50px", fontSize:"30px"}} name="chatName" placeholder="Study Room" />
                     </Form.Group>
                     <Button variant="outline-light" type="submit">
                         Submit

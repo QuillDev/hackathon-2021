@@ -49,7 +49,6 @@ class Join extends Component{
                 return await res.json();
             }).catch();
 
-        console.log(roomData);
         if(roomData === null){
             this.setState({chatStatus: `Room does not exist!`});
         }
@@ -63,8 +62,6 @@ class Join extends Component{
 
         //set working to false
         this.working = false;
-
-        console.log(this.working);
     }
 
     render(){
