@@ -11,7 +11,8 @@ class Chat extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            "roomName": "New Chat"
+            "roomName": "New Chat",
+            "roomCode": ""
         };
         this.roomCode = null;
         this.favorite = false;
@@ -108,11 +109,14 @@ class Chat extends Component{
             return;
         }
 
+        this.roomCode = roomData.code;
+
         this.setState({
             "roomName": roomData.name,
+            "roomCode": this.roomCode,
             "favorite": false
         });
-        this.roomCode = roomData.code;
+
     }
 
     /**
@@ -220,6 +224,7 @@ class Chat extends Component{
                         {this.state.roomName}
                         <div as="button" onClick={ () => {this.favorite = !this.favorite; this.drawFavorite(); this.updateFavorite();}}  id="starDiv"/>
                     </div>
+                    <p>{this.state.roomCode}</p>
                     <div id="messages">
                     </div>
                     <div id="chat-box-div">
@@ -233,7 +238,6 @@ class Chat extends Component{
                             </form>
                         </div>
                     </div>
-                    <a>{this.state.roomCode}</a>
                 </header>
             </div>
         );
