@@ -221,10 +221,9 @@ class Chat extends Component{
                 <header className={"App-header-fix"}>
                     {/* Set the room name */}
                     <div id="roomBanner">
-                        {this.state.roomName}
+                        {this.state.roomName} (Room code: {this.state.roomCode})
                         <div as="button" onClick={ () => {this.favorite = !this.favorite; this.drawFavorite(); this.updateFavorite();}}  id="starDiv"/>
                     </div>
-                    <p>{this.state.roomCode}</p>
                     <div id="messages">
                     </div>
                     <div id="chat-box-div">
