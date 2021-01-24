@@ -15,6 +15,7 @@ class Chat extends Component{
                 <header className={"App-header-fix"}>
                     <div style={{alignItems:"flex-start", flexDirection:"row"}}>
                         <div style={{paddingBottom:"20px", paddingTop:"10px"}}>
+                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             <a style={{borderStyle:"solid", fontSize:"40px", padding:"15px"}}>Michael's Chat Room</a>
                         </div>
                     </div>

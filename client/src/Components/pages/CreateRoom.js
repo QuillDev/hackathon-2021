@@ -39,9 +39,12 @@ class CreateRoom extends Component{
             this.setState({ roomStatus: room } );
             return;
         }
+        else {
+            //take them to the chat
+            window.location.href = `../chat?room=${room}`;
+        }
 
-        //take them to the chat
-        window.location.href = `../chat?room=${room}`;
+
 
         //set processing to false
         this.processing = false;
