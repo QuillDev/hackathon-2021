@@ -1,7 +1,6 @@
 import {Component} from "react";
 import Button from "react-bootstrap/Button";
 import {Form, FormControl, InputGroup, Modal} from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./question.css";
 
 class Question extends Component{
