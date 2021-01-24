@@ -1,22 +1,44 @@
 import {Component} from "react";
 import qs from "qs";
 import socketIOClient from "socket.io-client";
+import "./chat.css";
 
 class Chat extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {"roomName": "New Chat"};
+        this.state = {
+            "roomName": "New Chat"
+        };
         this.roomCode = null;
-        this.socket = socketIOClient("https://api.quilldev.tech");
+        this.icon = localStorage.getItem("icon");
+        this.socket = socketIOClient("https://api.quilldev.tech")
 
         //Log the message
-        this.socket.on("chat message", (msg, usr, room) => {
+        this.socket.on("chat message", (msg, usr, icon, room) => {
             if(this.roomCode !== room){
                 return;
             }
 
-            console.log(`${usr} : ${msg}`);
+            const messages = document.getElementById("messages");
+            const prevMsgs = messages.getElementsByTagName("li");
+            const lastMsg = prevMsgs.item(prevMsgs.length - 1);
+
+            const classname = usr.split(" ").join("-");
+
+            if(prevMsgs.length === 0 || classname !== lastMsg.className) {
+                const nameMsg = document.createElement('li');
+                nameMsg.classList.add(classname);
+                nameMsg.classList.add("name");
+                nameMsg.innerHTML= `<p><img src="${icon}" class="user-icon" alt="">${usr}</p></img>`;
+                messages.appendChild(nameMsg);
+                window.scrollTo(0, document.body.scrollHeight);
+            }
+            const item = document.createElement('li');
+            item.classList.add(classname);
+            item.textContent = msg;
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
         });
     }
 
@@ -79,7 +101,7 @@ class Chat extends Component{
 
         event.target.reset();
 
-        this.socket.emit("chat message", message, localStorage.getItem("name"), this.roomCode);
+        this.socket.emit("chat message", message, localStorage.getItem("name"), localStorage.getItem("icon"), this.roomCode);
     }
     render(){
         return(
@@ -91,6 +113,8 @@ class Chat extends Component{
                             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             <a style={{borderStyle:"solid", fontSize:"40px", padding:"15px"}}>{this.state.roomName}</a>
                         </div>
+                    </div>
+                    <div id="messages">
                     </div>
                     <form onSubmit={(event) => this.sendMessage(event)} id="form" action="">
                         <input autoComplete="off" name="chatBox"/>
