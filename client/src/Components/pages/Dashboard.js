@@ -123,6 +123,8 @@ class Dashboard extends Component{
                             <div id="serverList">
                                 <h1 style={{paddingTop: "15px"}}>SERVERS:</h1>
                                 <Link to="../join"><Image className="server-logo" src={joinImage}/></Link>
+                                <h3> Join a chat room</h3>
+                                <hr style={{backgroundColor: "white"}}/>
                             </div>
                         </Col>
                         <Col xs={8} id="center-column">
